@@ -1,0 +1,95 @@
+spring:
+  datasource:
+#    jdbc:h2:./test1234
+#    url: jdbc:h2:tcp://localhost/./test1234
+    url: jdbc:h2:tcp://localhost/./test1234
+    username: sa
+    password: 1234
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        default_batch_fetch_size: 30
+        jdbc:
+          batch_size: 100
+
+
+
+
+logging.level:
+  org.hibernate.SQL: debug
+
+token:
+  secret:
+    key: SpringBootJWTHelperTokenSecretKeyValue123!@#
+  access-token:
+    plus-hour: 1
+  refresh-token:
+    plus-hour: 12
+
+
+
+# 유료 버전
+#spring:
+#  profiles:
+#    default: local
+#
+#  datasource:
+#    url: jdbc:h2:tcp://localhost/./test123
+#    username: sa
+#    password: 1234
+#    driver-class-name: org.h2.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+#
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: local
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    show_sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        use_sql_comments: true
+#        # data.sql 실행
+#    defer-datasource-initialization: true
+#
+#  h2:
+#    console:
+#      enabled: true
+#
+#logging.level:
+#  org.hibernate.SQL: debug
+#
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: test
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    show_sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#  #        use_sql_comments: true
+#
+#  # data.sql 실행 X
+#  sql:
+#    init:
+#      mode: never
